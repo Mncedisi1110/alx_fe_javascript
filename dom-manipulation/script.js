@@ -23,8 +23,8 @@ function showRandomQuote(){
     quoteDisplay.innerHTML = `${quotes[randomIndex].text} - ${quotes[randomIndex].category}`;
 }
 document.getElementById('newQuote').addEventListener('click', showRandomQuote);
-createaddQuoteForm();
-function createaddQuoteForm() {
+createAddQuoteForm();
+function createAddQuoteForm() {
     const addQuoteSection = document.createElement('div');
     addQuoteSection.id = 'addQuoteSection';
     addQuoteSection.innerHTML = `
