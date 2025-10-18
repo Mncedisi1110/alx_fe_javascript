@@ -21,9 +21,20 @@ function showRandomQuote(){
     const randomIndex = Math.floor(Math.random() * quotes.length);
     const quoteDisplay = document.getElementById("quoteDisplay");
     quoteDisplay.innerHTML = `${quotes[randomIndex].text} - ${quotes[randomIndex].category}`;
-
 }
 document.getElementById('newQuote').addEventListener('click', showRandomQuote);
+createaddQuoteForm();
+function createaddQuoteForm() {
+    const addQuoteSection = document.createElement('div');
+    addQuoteSection.id = 'addQuoteSection';
+    addQuoteSection.innerHTML = `
+    <input id="newQuoteText" type="text" placeholder="Enter a new quote" /><br>
+    <input id="newQuoteCategory" type="text" placeholder="Enter quote category" /><br>
+    <button id="addQuote">Add Quote</button>
+  `;
+    document.body.appendChild(addQuoteSection);
+}
+
 
 
 
