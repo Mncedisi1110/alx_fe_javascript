@@ -11,6 +11,21 @@ function getQuote() {
         })
         .catch(error => console.error('Error fetching quote:', error));
 }
+function showRandomQuote(){
+    const quotes = [
+        {text: "The best way to predict the future is to invent it.", category: "Inspiration"},
+        {text: "Life is 10% what happens to us and 90% how we react to it.", category: "Motivation"},
+        {text: "The only limit to our realization of tomorrow is our doubts of today.", category: "Hope"},
+        {text: "In the middle of every difficulty lies opportunity.", category: "Perseverance"}
+    ];
+    const randomIndex = Math.floor(Math.random() * quotes.length);
+    const quoteDisplay = document.getElementById("quoteDisplay");
+    quoteDisplay.innerHTML = `${quotes[randomIndex].text} - ${quotes[randomIndex].category}`;
+
+}
+document.getElementById('newQuote').addEventListener('click', showRandomQuote);
+
+
 
 
 
@@ -23,13 +38,14 @@ function addQuote() {
     const newQuoteCategory = W.value;
     if (newQuoteText && newQuoteCategory) {
         const quoteDisplay = document.getElementById("quoteDisplay");
-        quoteDisplay.innerText = `"${newQuoteText}" - Category: ${newQuoteCategory}`;
+        quoteDisplay.innerText = `text: ${newQuoteText} - Category: ${newQuoteCategory}`;
         Z.value = '';
         W.value = '';
     } else {
         alert("Please enter both quote text and category.");
     }
 }
-   
+document.getElementById('addQuote').addEventListener('click', addQuote);
+   quotes.appendChild({text: newQuoteText, category: newQuoteCategory});
 
  
