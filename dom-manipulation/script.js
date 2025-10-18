@@ -2,10 +2,16 @@ const X = document.getElementById('newQuote');
 X.addEventListener('click', getQuote);
 
 function getQuote() {
- document.getElementById("quoteDisplay").innerText = [
-       "text", "category"
- ];
+    fetch('https://api.quotable.io/random')
+        .then(response => response.json())
+        .then(data => 
+        {
+            const quoteDisplay = document.getElementById("quoteDisplay");
+            quoteDisplay.innerText = `${data.text} - ${data.category}`;
+        })
+        .catch(error => console.error('Error fetching quote:', error));
 }
+
 
 
 
