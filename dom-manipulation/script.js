@@ -130,17 +130,19 @@ document.getElementById('exportButton').addEventListener('click', exportToJsonFi
 document.getElementById('categoryFilter').addEventListener('change', filterQuotes);
 
 fetchQuotesFromServer();
-function fetchQuotesFromServer() {
-    fetch('https://example.com/api/quotes')
-        .then(response => response.json())
-        .then(data => {
+ async function fetchQuotesFromServer() {
+        try {
+            const response = await fetch('https://example.com/api/quotes');
+            const data = await response.json();
             quotes.push(...data);
             saveQuotes();
             populateCategories();
-        })
-        .catch(error => console.error('Error fetching quotes from server:', error));
-}
-
+            alert('Quotes fetched from server successfully!');
+        } catch (error) {
+            console.error('Error fetching quotes from server:', error);
+        }
+    }
+    
 // End of script.js
 
    
