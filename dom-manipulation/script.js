@@ -55,6 +55,7 @@ function addQuote() {
     } else {
         alert("Please enter both quote text and category.");
     }
+    
 }
 document.getElementById('addQuote').addEventListener('click', addQuote);
    quotes.appendChild(Z,W);
@@ -127,6 +128,19 @@ function restorefilteredQuotes() {
 document.getElementById('importFile').addEventListener('change', importFromJsonFile);
 document.getElementById('exportButton').addEventListener('click', exportToJsonFile);
 document.getElementById('categoryFilter').addEventListener('change', filterQuotes);
+
+fetchQuotesFrommServer();
+function fetchQuotesFrommServer() {
+    fetch('https://example.com/api/quotes')
+        .then(response => response.json())
+        .then(data => {
+            quotes.push(...data);
+            saveQuotes();
+            populateCategories();
+        })
+        .catch(error => console.error('Error fetching quotes from server:', error));
+}
+
 // End of script.js
 
    
