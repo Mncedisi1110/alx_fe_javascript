@@ -129,8 +129,8 @@ document.getElementById('importFile').addEventListener('change', importFromJsonF
 document.getElementById('exportButton').addEventListener('click', exportToJsonFile);
 document.getElementById('categoryFilter').addEventListener('change', filterQuotes);
 
-fetchQuotesFrommServer();
-function fetchQuotesFrommServer() {
+fetchQuotesFromServer();
+function fetchQuotesFromServer() {
     fetch('https://example.com/api/quotes')
         .then(response => response.json())
         .then(data => {
