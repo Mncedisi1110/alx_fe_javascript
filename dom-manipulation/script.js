@@ -157,6 +157,7 @@ fetchQuotesFromServer();
             },
             body: JSON.stringify(quotes)
         }), 300000); // Sync every 5 minutes
+        alert("Quotes synced with server!")
     }
 
 // End of script.js
