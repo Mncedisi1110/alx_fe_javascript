@@ -57,6 +57,30 @@ function addQuote() {
     }
 }
 document.getElementById('addQuote').addEventListener('click', addQuote);
-   quotes.appendChild({text: newQuoteText, category: newQuoteCategory});
+   quotes.appendChild(Z,W);
+
+   const myJASON = JSON.stringify(quotes);
+   localStorage.setItem("myQuotes", myJASON);
+
+const storedQuotes = localStorage.getItem("myQuotes");
+if (storedQuotes) {
+    const quotesArray = JSON.parse(storedQuotes);
+    const quoteDisplay = document.getElementById("quoteDisplay");
+    quoteDisplay.innerHTML= quotesArray;
+}
+function importFromJsonFile(event) {
+    const fileReader = new FileReader();
+    fileReader.onload = function(event) {
+      const importedQuotes = JSON.parse(event.target.result);
+      quotes.push(...importedQuotes);
+      saveQuotes();
+      alert('Quotes imported successfully!');
+    };
+    fileReader.readAsText(event.target.files[0]);
+  }
+
+
+
+
 
  
