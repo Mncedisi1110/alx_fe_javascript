@@ -147,6 +147,16 @@ fetchQuotesFromServer();
         } catch (error) {
             console.error('Error fetching quotes from server:', error);
         }
+
+    }
+    function syncQuotes() {
+        fetch("https://jsonplaceholder.typicode.com/posts", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(quotes)
+        });
     }
     
 // End of script.js
