@@ -130,9 +130,15 @@ document.getElementById('exportButton').addEventListener('click', exportToJsonFi
 document.getElementById('categoryFilter').addEventListener('change', filterQuotes);
 
 fetchQuotesFromServer();
+  
  async function fetchQuotesFromServer() {
         try {
-            const response = await fetch("https://jsonplaceholder.typicode.com/posts");
+            const response = await fetch("https://jsonplaceholder.typicode.com/posts" ({
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }));
             const data = await response.json();
             quotes.push(...data);
             saveQuotes();
