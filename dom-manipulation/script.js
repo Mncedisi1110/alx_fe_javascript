@@ -150,15 +150,15 @@ fetchQuotesFromServer();
 
     }
     function syncQuotes() {
-        fetch("https://jsonplaceholder.typicode.com/posts", {
+        setInterval(fetch("https://jsonplaceholder.typicode.com/posts", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(quotes)
-        });
+        }), 300000); // Sync every 5 minutes
     }
-    
+
 // End of script.js
 
    
