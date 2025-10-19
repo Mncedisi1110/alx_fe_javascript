@@ -134,7 +134,7 @@ fetchQuotesFromServer();
  async function fetchQuotesFromServer() {
         try {
             const response = await fetch("https://jsonplaceholder.typicode.com/posts" ({
-                method: 'GET',
+                method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 }
